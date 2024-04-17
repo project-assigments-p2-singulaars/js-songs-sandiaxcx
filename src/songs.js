@@ -1,44 +1,50 @@
 //Exercise 1: Get the array of all Artists.
 function getAllArtists(array){
-    let result = '???';
-    //console.log("Exercise 1 ->", result);
-    return result;
+    let result1 = array.map(song => song.artist);;
+    console.log(result1);
+    return result1;
 };
 
 //Exercise 2: Get the songs of a certain artist
 function getSongsFromArtist(array, artist){
-    //Write your code here
+    let result2 = array.filter(song => song.artist === artist);
+    return result2;
 };
 
 //Exercise 3: Alphabetic order by title
-function orderAlphabetically(){
-    //Write your code here
+function orderAlphabetically(array){
+    let result3 = array.map(song => song.title).sort();
+    if(result3.length < 3){
+        return result3;
+    }
+    return result3.slice(0, 10);
 };
 
 //Exercise 4: Order by year, ascending
-function orderByYear(){
-    //Write your code here
+function orderByYear(songs){
+    return songs.slice().sort((a, b) => {
+        if (a.year === b.year) {
+            return a.title.localeCompare(b.title);
+        }
+        return a.year - b.year;
+    });
 };
 
 //Exercise 5: Filter songs by genre
-function songsByGenre() {
-    //Write your code here
+function songsByGenre(songs, genre) {
+    return songs.filter(song => song.genre.includes(genre));
 };
 
 //Exercise 6: Modify the duration of songs to seconds
-function minutsToSeconds() {
-    //Write your code here
-};
 
 //Exercise 7: Get the longest song
-function getLongestSong(){
-    //Write your code here
-};
+
+// function getLongestSong(){
 
 //Exercise 8: Get the shortest song
 //Write the getShortestSong() function
 
-
+// function getShortestSong(songs){
 
 
 export { getAllArtists, getSongsFromArtist, orderAlphabetically, orderByYear, songsByGenre, minutsToSeconds, getLongestSong };
